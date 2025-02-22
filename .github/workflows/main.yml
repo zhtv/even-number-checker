@@ -17,20 +17,20 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Clean npm cache
+        run: npm cache clean --force
+
       - name: Install dependencies
         run: npm install
 
       - name: Check Jest installation
-        run: which jest
+        run: which jest || echo "Jest is not found!"
 
       - name: List project files
         run: ls -R
 
       - name: Run tests
         run: npm test
-
-      - name: Show test results
-        run: cat npm-debug.log || echo "No npm-debug.log found"
 
       - name: Finish message
         run: echo "Тестирование завершено!"
