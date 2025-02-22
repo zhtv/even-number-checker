@@ -20,8 +20,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Check Jest installation
+        run: which jest
+
+      - name: List project files
+        run: ls -R
+
       - name: Run tests
         run: npm test
+
+      - name: Alternative: Run tests directly with Jest
+        run: npx jest
 
       - name: Finish message
         run: echo "Тестирование завершено!"
